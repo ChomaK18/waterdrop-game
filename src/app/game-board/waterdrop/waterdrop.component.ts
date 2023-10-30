@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {GameStateService} from '../../services/game-state.service';
 
 @Component({
   selector: 'waterdrop',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./waterdrop.component.scss']
 })
 export class WaterdropComponent {
+
+  constructor(private gameState: GameStateService) {
+  }
+
+  pop(): void {
+    this.gameState.emitScore(10);
+  }
 
 }
