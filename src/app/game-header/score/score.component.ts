@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {GameStateService} from '../../services/game-state.service';
-import {BehaviorSubject} from 'rxjs';
+import {Subject} from 'rxjs';
 
 @Component({
   selector: 'score',
@@ -9,7 +9,7 @@ import {BehaviorSubject} from 'rxjs';
 })
 export class ScoreComponent {
 
-  score$: BehaviorSubject<any>;
+  score$: Subject<any>;
 
   constructor(private gameState: GameStateService) {
     this.score$ = this.gameState.score$;

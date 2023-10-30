@@ -1,5 +1,7 @@
-:host{
-    display: flex;
-    justify-content: center;
-    border: solid;
+:host {
+  border: solid;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 5px;
+  justify-items: center;
 }

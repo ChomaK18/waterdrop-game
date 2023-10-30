@@ -1,5 +1,6 @@
 import {Component, OnDestroy} from '@angular/core';
-import {interval, Subject, takeUntil, takeWhile, tap} from 'rxjs';
+import {Subject} from 'rxjs';
+import {GameStateService} from '../../services/game-state.service';
 
 @Component({
   selector: 'timer',
@@ -8,16 +9,16 @@ import {interval, Subject, takeUntil, takeWhile, tap} from 'rxjs';
 })
 export class TimerComponent implements OnDestroy {
 
-  time: number;
+  time$: Subject<number>;
   private destroy$ = new Subject<void>();
 
-  constructor() {
-    this.time = 10;
-    interval(1000).pipe(
-      takeWhile(()=> !!this.time),
-      tap(() => this.time--),
-      takeUntil(this.destroy$)
-    ).subscribe();
+  constructor(private gameState: GameStateService) {
+    this.time$ = this.gameState.time$;
+    this.gameState.startTimer(15);
+  }
+
+  startGame(): void {
+    this.gameState.startTimer(15);
   }
 
   ngOnDestroy(): void {

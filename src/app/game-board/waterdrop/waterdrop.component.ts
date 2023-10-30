@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {GameStateService} from '../../services/game-state.service';
 
 @Component({
@@ -8,11 +8,20 @@ import {GameStateService} from '../../services/game-state.service';
 })
 export class WaterdropComponent {
 
+  @Input()
+  isClickable = false;
+
+  @Output()
+  clickEvent = new EventEmitter<any>();
+
   constructor(private gameState: GameStateService) {
   }
 
   pop(): void {
-    this.gameState.emitScore(10);
+    if (this.isClickable) {
+      this.gameState.emitScore(10);
+      this.clickEvent.emit();
+    }
   }
 
 }
