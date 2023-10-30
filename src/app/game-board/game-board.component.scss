@@ -1,4 +1,11 @@
 :host {
+  display: flex;
+  justify-content: center;
+}
+
+.board {
+  height: 215px;
+  width: 215px;
   border: solid;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
