@@ -6,6 +6,10 @@ import { TimerComponent } from './game-header/timer/timer.component';
 import { ScoreComponent } from './game-header/score/score.component';
 import { GameBoardComponent } from './game-board/game-board.component';
 import { WaterdropComponent } from './game-board/waterdrop/waterdrop.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StartGameComponent } from './modals/start-game/start-game.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -14,10 +18,14 @@ import { WaterdropComponent } from './game-board/waterdrop/waterdrop.component';
     TimerComponent,
     ScoreComponent,
     GameBoardComponent,
-    WaterdropComponent
+    WaterdropComponent,
+    StartGameComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

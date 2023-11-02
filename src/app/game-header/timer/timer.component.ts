@@ -14,11 +14,6 @@ export class TimerComponent implements OnDestroy {
 
   constructor(private gameState: GameStateService) {
     this.time$ = this.gameState.time$;
-    this.gameState.startTimer(15);
-  }
-
-  startGame(): void {
-    this.gameState.startTimer(15);
   }
 
   ngOnDestroy(): void {

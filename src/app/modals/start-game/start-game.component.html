@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Start new game</h1>
+<div mat-dialog-content>
+  Zacznij nową grę
+</div>
+
+<div mat-dialog-actions align="center">
+  <button *ngFor="let t of gameTimes"
+          mat-raised-button
+          color="primary"
+          (click)="startGame(t)">Rozpocznij grę ({{t}}s)
+  </button>
+</div>

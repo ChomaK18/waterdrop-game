@@ -1,12 +1,12 @@
 import {Injectable} from '@angular/core';
-import {interval, Subject, takeWhile, tap} from 'rxjs';
+import {BehaviorSubject, interval, Subject, takeWhile, tap} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GameStateService {
 
-  score$ = new Subject<number>();
+  score$ = new BehaviorSubject<number>(0);
   time$ = new Subject<number>();
 
   private score = 0;
@@ -16,13 +16,13 @@ export class GameStateService {
   }
 
   startTimer(startingTime: number): void {
+    this.score = 0;
     this.time = startingTime;
+    this.score$.next(this.score);
     this.time$.next(this.time);
     interval(1000).pipe(
       takeWhile(() => !!this.time),
-      tap(() => this.score$.next(this.score)),
-      tap(() => this.time--),
-      tap(() => this.time$.next(this.time)),
+      tap(() => this.time$.next(--this.time)),
     ).subscribe();
   }
 
