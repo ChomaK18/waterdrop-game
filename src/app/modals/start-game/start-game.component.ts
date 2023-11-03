@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import {MatDialogRef} from '@angular/material/dialog';
 import {GameStateService} from '../../services/game-state.service';
+import {DialogRef} from '@angular/cdk/dialog';
 
 @Component({
   selector: 'start-game',
@@ -11,7 +11,7 @@ export class StartGameComponent {
 
   gameTimes = [10, 30, 60];
 
-  constructor(private dialogRef: MatDialogRef<StartGameComponent>,
+  constructor(private dialogRef: DialogRef<StartGameComponent>,
               private gameState: GameStateService) {
   }
 

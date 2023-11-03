@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import {MatDialog} from '@angular/material/dialog';
+import {Component} from '@angular/core';
 import {StartGameComponent} from './modals/start-game/start-game.component';
+import {Dialog} from '@angular/cdk/dialog';
 
 @Component({
   selector: 'app-root',
@@ -10,16 +10,14 @@ import {StartGameComponent} from './modals/start-game/start-game.component';
 export class AppComponent {
   title = 'waterdrop-game';
 
-  constructor(private dialog: MatDialog) {
+  constructor(private dialog: Dialog) {
 
     this.dialog.open(StartGameComponent, {
       height: '400px',
       width: '400px',
-      panelClass: 'my-dialog'
     });
 
   }
-
 
 
 }

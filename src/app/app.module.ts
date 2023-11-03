@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StartGameComponent } from './modals/start-game/start-game.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
+import { EndGameComponent } from './modals/end-game/end-game.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {MatButtonModule} from '@angular/material/button';
     ScoreComponent,
     GameBoardComponent,
     WaterdropComponent,
-    StartGameComponent
+    StartGameComponent,
+    EndGameComponent
   ],
   imports: [
     BrowserModule,
