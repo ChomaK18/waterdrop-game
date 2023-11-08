@@ -4,12 +4,12 @@
 }
 
 .board {
-  height: 215px;
-  width: 215px;
+  height: 430px;
+  width: 430px;
   border: solid;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 5px;
+  grid-gap: 10px;
   justify-items: center;
 
   &.paused {
