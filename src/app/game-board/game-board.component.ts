@@ -24,7 +24,8 @@ export class GameBoardComponent implements OnDestroy {
       tap(() => this.dialog.open(EndGameComponent, {
         height: '400px',
         width: '400px',
-        data: this.gameState.getScore()
+        data: this.gameState.getScore(),
+        disableClose: true
       })),
       takeUntil(this.destroy$)
     ).subscribe();

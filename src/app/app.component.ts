@@ -15,6 +15,7 @@ export class AppComponent {
     this.dialog.open(StartGameComponent, {
       height: '400px',
       width: '400px',
+      disableClose: true
     });
 
   }
