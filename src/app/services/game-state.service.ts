@@ -30,4 +30,9 @@ export class GameStateService {
     this.score += points;
     this.score$.next(this.score);
   }
+
+   getScore(): number {
+    return this.score;
+  }
+
 }

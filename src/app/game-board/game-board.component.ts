@@ -1,6 +1,6 @@
 import {Component, OnDestroy} from '@angular/core';
 import {GameStateService} from '../services/game-state.service';
-import {filter, map, mergeMap, Subject, takeUntil, tap} from 'rxjs';
+import {filter, map, Subject, takeUntil, tap} from 'rxjs';
 import {MatDialog} from '@angular/material/dialog';
 import {EndGameComponent} from '../modals/end-game/end-game.component';
 
@@ -21,11 +21,10 @@ export class GameBoardComponent implements OnDestroy {
       map(time => !!time),
       tap(isGameRunning => this.isGameRunning = isGameRunning),
       filter(isGameRunning => !isGameRunning),
-      mergeMap(() => this.gameState.score$),
-      tap(score => this.dialog.open(EndGameComponent, {
+      tap(() => this.dialog.open(EndGameComponent, {
         height: '400px',
         width: '400px',
-        data: score
+        data: this.gameState.getScore()
       })),
       takeUntil(this.destroy$)
     ).subscribe();
