@@ -1,0 +1,15 @@
+:host {
+  width: 110px;
+  border-radius: 10px;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  background: transparent;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    opacity: 0.8;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+  }
+}

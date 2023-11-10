@@ -1,0 +1,7 @@
+<div [ngClass]="{'paused' : !isGameRunning}"
+     class="board">
+  <waterdrop *ngFor="let _ of [].constructor(16); let i = index"
+             [isClickable]="isGameRunning && i === clickableId"
+             (clickEvent)="draw()">
+  </waterdrop>
+</div>
