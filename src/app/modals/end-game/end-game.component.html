@@ -1,8 +1,46 @@
-<h1 mat-dialog-title>Game over</h1>
+<h1 mat-dialog-title>Koniec gry</h1>
 <div mat-dialog-content>
   Twój wynik: {{data}}
+  <div align="center" *ngIf="!isScoreSaved; else tableScore">
+    <div>
+      <label for="nick">Podaj swoje imię</label>
+      <input id="nick"
+             type="text"
+             required
+             [formControl]="nickControl">
+    </div>
+    <button mat-raised-button
+            color="primary"
+            [disabled]="nickControl.disabled"
+            (click)="saveRecord()">
+      Zapisz wynik
+    </button>
+  </div>
+  <ng-template #tableScore>
+    <table [dataSource]="gameRecords"
+           mat-table
+           class="mat-elevation-z8">
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef>No.</th>
+        <td mat-cell *matCellDef="let record; let i = index">{{ i + 1 }}</td>
+      </ng-container>
+      <ng-container matColumnDef="nick">
+        <th mat-header-cell *matHeaderCellDef>Nick</th>
+        <td mat-cell *matCellDef="let record">{{record.nick}}</td>
+      </ng-container>
+      <ng-container matColumnDef="score">
+        <th mat-header-cell *matHeaderCellDef>Wynik</th>
+        <td mat-cell *matCellDef="let record">{{record.score}}</td>
+      </ng-container>
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef>Data</th>
+        <td mat-cell *matCellDef="let record">{{record.date | date: 'dd.MM.yyyy HH:mm'}}</td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </ng-template>
 </div>
-
 <div mat-dialog-actions align="center">
   <button mat-raised-button
           color="primary"

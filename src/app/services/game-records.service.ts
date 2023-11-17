@@ -27,7 +27,7 @@ export class GameRecordsService {
 
 }
 
-interface GameRecord {
+export interface GameRecord {
   nick: string;
   score: number;
   date: Date;

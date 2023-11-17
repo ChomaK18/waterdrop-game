@@ -6,7 +6,11 @@
 .board {
   height: 430px;
   width: 430px;
-  border: solid;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  background: transparent;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  padding: 10px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 10px;
